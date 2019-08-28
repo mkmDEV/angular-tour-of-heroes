@@ -1,7 +1,10 @@
 import {Injectable} from '@angular/core';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
+
+import {catchError, map, tap} from 'rxjs/operators';
 import {Observable, of} from 'rxjs';
+
 import {Hero} from '../models/hero';
-import {HEROES} from '../models/mock-heroes';
 import {MessageService} from './message.service';
 
 @Injectable({
