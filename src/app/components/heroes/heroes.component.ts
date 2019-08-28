@@ -9,9 +9,7 @@ import {HeroService} from '../../services/hero.service';
 })
 export class HeroesComponent implements OnInit {
 
-  heroes = HEROES;
-
-  ngOnInit() {
+  constructor(private heroService: HeroService) {
   }
 
   selectedHero: Hero;
