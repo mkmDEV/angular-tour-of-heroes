@@ -1,4 +1,7 @@
 import {Component, OnInit, Input} from '@angular/core';
+import {ActivatedRoute} from '@angular/router';
+import {Location} from '@angular/common';
+import {HeroService} from '../../../services/hero.service';
 import {Hero} from '../../../models/hero';
 
 @Component({
@@ -8,8 +11,12 @@ import {Hero} from '../../../models/hero';
 })
 export class HeroDetailComponent implements OnInit {
   @Input() hero: Hero;
-  constructor() {
-  }
+
+  constructor(
+    private route: ActivatedRoute,
+    private heroService: HeroService,
+    private location: Location,
+  ) {}
 
   ngOnInit() {
   }
