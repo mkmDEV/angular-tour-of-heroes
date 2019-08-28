@@ -1,13 +1,17 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { HeroesComponent } from './components/heroes/heroes.component';
+import {AppRoutingModule} from './app-routing.module';
+import {AppComponent} from './app.component';
+import {HeroesComponent} from './components/heroes/heroes.component';
 import {FormsModule} from '@angular/forms';
-import { HeroDetailComponent } from './components/heroes/hero-detail/hero-detail.component';
-import { MessagesComponent } from './components/messages/messages/messages.component';
-import { DashboardComponent } from './components/dashboard/dashboard.component';
+import {HeroDetailComponent} from './components/heroes/hero-detail/hero-detail.component';
+import {MessagesComponent} from './components/messages/messages/messages.component';
+import {DashboardComponent} from './components/dashboard/dashboard.component';
+
+import {HttpClientModule} from '@angular/common/http';
+import {HttpClientInMemoryWebApiModule} from 'angular-in-memory-web-api';
+import {InMemoryDataService} from './in-memory-data.service';
 
 @NgModule({
   declarations: [
@@ -20,9 +24,15 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule,
+
+    HttpClientInMemoryWebApiModule.forRoot(
+      InMemoryDataService, {dataEncapsulation: false}
+    )
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
